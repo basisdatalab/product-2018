@@ -14,18 +14,6 @@ mongoose.connect('mongodb://helmisatria:password123@ds036967.mlab.com:36967/prod
 
 const Cat = mongoose.model('Cat', { name: String });
 
-Cat.create({ name: 'KOCHEEENG' }, (err, result) => {
-  if (err) {
-    console.log('====================================');
-    console.log(err);
-    console.log('====================================');
-  }
-
-  console.log(result);
-  
-}
-)
-
 // ini buat render file ejs
 app.set('view engine', 'ejs');
 
@@ -37,6 +25,20 @@ app.get('/cihuy', (req, res) => {
   const variabelKirim = "Bams 123"
 
   console.log(variabelKirim);
+  
+
+  Cat.create({ name: 'KOCHEEENG' }, (err, result) => {
+    if (err) {
+      console.log('====================================');
+      console.log(err);
+      console.log('====================================');
+    }
+
+    console.log(result);
+    
+  }
+  )
+
   
   res.render('cihuy.ejs', {
     iniVarDiFrontend: variabelKirim,
